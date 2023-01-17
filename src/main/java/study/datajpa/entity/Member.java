@@ -18,7 +18,7 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @ToString(of = {"id", "username", "age"})
-public class Member {
+public class Member extends BaseEntity {
 
     @Id
     @GeneratedValue
@@ -32,6 +32,11 @@ public class Member {
     private Team team;
 
     public Member(String username) {
+        this.username = username;
+    }
+
+    public Member(String username, int age) {
+        this.age = age;
         this.username = username;
     }
 
